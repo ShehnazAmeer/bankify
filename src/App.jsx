@@ -2,16 +2,26 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom"
 import Home from "./pages/Home"
 import Applayout from "./ui/Applayout"
 import Dashboard from "./pages/Dashboard"
-import Account from "./pages/Account"
 import Login from "./pages/Login"
 import Signup from "./pages/Signup"
 import PageNotFound from "./pages/PageNotFound"
+import AccountDetail from './features/account/AccountDetail';
+import Withdraw from './features/withdaw/Withdraw';
+import TransferDetail from './features/transfer/TransferDetail';
+import LoanDetail from './features/loan/LoanDetail';
+import Card from './features/card/Card';
+
 const router= createBrowserRouter([
   {
     element: <Applayout />,
     children: [
       { path: '/dashboard', element: <Dashboard /> },
-      {path:'/account',element:<Account/>},
+      { path: '/account', element: <AccountDetail /> },
+      { path: '/withdraw', element: <Withdraw /> },
+      { path: '/transfer', element: <TransferDetail /> },
+      { path: '/loan', element: <LoanDetail /> },
+      { path: '/orderCard', element: <Card /> },
+      
     ]
   },
   { index: true, path: '/', element: <Home /> },

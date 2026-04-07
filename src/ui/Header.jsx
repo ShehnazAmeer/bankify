@@ -1,6 +1,7 @@
 import Logo from "./Logo";
 import Button from "./Button";
 import { useNavigate } from "react-router";
+import Navbar from "./Navbar";
 export default function Header() {
     const navigate=useNavigate()
     
@@ -9,6 +10,7 @@ export default function Header() {
             className="flex py-5 border justify-between w-full items-center "
         > 
             <Logo />
+            <Navbar/>
             <span className="space-x-4 mr-3">
                 
                 <Button
