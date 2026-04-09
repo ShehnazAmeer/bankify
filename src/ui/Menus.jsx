@@ -1,4 +1,6 @@
-import { createContext, useState } from "react"
+import { createContext, useContext, useState } from "react"
+import { createPortal } from "react-dom";
+import useOutsideClick from "../hooks/useOutsideClick";
 
 const MenusContext = createContext();
 
@@ -35,10 +37,37 @@ function Menu({ children }) {
     )
  }
 function MenuList({ children, id }) {
+    const { openId, toggleButtonPosition, close } = useMenu();
     
+    const ref = useOutsideClick();
+    
+    if (openId !== id) return null;
+
+    return (
+        createPortal(
+            <ul ref={ref} style={{right:toggleButtonPosition.x,top:toggleButtonPosition.y}}>
+                {children}
+            </ul>,document.body
+        )
+    )
  }
-function MenuButton() { }
-function ToggleButton(){}
+function MenuButton({children}) {
+    return (
+        <li>
+            {children}
+        </li>
+    )
+ }
+function ToggleButton({children}) {
+    
+}
+
+function useMenu() {
+    const context = useContext(MenusContext);
+    if (context === undefined) throw new Error('Menu context outside of his provider');
+
+    return context;
+}
 
 Menus.Menu = Menu;
 Menus.MenuButton = MenuButton;

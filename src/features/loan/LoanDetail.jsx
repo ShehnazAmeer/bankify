@@ -1,7 +1,10 @@
+import MainHeading from "../../ui/MainHeading";
+
 export default function LoanDetail() {
     return (
         <div>
-            LoanDetail
+            <MainHeading> LoanDetail</MainHeading>
+           
         </div>
     )
 }

@@ -1,7 +1,10 @@
+import MainHeading from "../../ui/MainHeading";
+
 export default function Card() {
     return (
         <div>
-            CArd
+            <MainHeading>CArd</MainHeading>
+            
         </div>
     )
 }
