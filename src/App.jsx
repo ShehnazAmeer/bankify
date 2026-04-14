@@ -10,6 +10,7 @@ import Withdraw from './features/withdaw/Withdraw';
 import TransferDetail from './features/transfer/TransferDetail';
 import LoanDetail from './features/loan/LoanDetail';
 import Card from './features/card/Card';
+import WithdrawTo from "./features/withdaw/WithdrawTo"
 
 const router= createBrowserRouter([
   {
@@ -18,6 +19,7 @@ const router= createBrowserRouter([
       { path: '/dashboard', element: <Dashboard /> },
       { path: '/account', element: <AccountDetail /> },
       { path: '/withdraw', element: <Withdraw /> },
+      {path:'/withdraw/withdrawto',element:<WithdrawTo/>},
       { path: '/transfer', element: <TransferDetail /> },
       { path: '/loan', element: <LoanDetail /> },
       { path: '/orderCard', element: <Card /> },

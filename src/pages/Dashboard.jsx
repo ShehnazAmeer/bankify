@@ -9,13 +9,9 @@ export default function Dashboard() {
                     <span className="font-bold text-[clamp(1rem,2vw,3rem)] text-gray-700">Total Balance:</span>
                     <span className="px-3">$700</span>
                 </p>
-                <p className="font-bold text-[clamp(1rem,1.5vw,3rem)] text-gray-700" >
-                    <span>Prev</span>
-                    <span>Next</span>
-                </p>
             </div>
 
-            <div className="border grid grid-cols-2 gap-3">
+            <div className="border grid grid-cols-[3fr_2fr] gap-3">
                 <div className="border">
                     <h3 className="font-bold text-[clamp(1rem,1.5vw,3rem)] text-gray-900 py-5">Transection History</h3>
                     <p>Updated every several minutes</p>

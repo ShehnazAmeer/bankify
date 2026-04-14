@@ -6,7 +6,7 @@ export default function Applayout() {
         <section className="grid grid-cols-1 grid-rows-[auto_1fr] h-screen">
             <Header />
             <main className="w-full h-screen px-5">
-                <Outlet/>
+                <Outlet />
             </main>
         </section>
     )
