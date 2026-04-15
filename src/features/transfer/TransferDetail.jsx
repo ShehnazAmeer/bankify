@@ -1,31 +1,30 @@
+import LinkCard from "../../ui/LinkCard";
 import MainHeading from "../../ui/MainHeading";
+import SectionHeader from "../../ui/SectionHeader";
 
 export default function TransferDetail() {
     return (
         <div>
-            <MainHeading> Transfer</MainHeading>
-            <div className="flex">
-                <div className="border text-center p-10  w-60">
-                    <p className="flex justify-center">
-                       Transfer to Bankify account
-                    </p>
-                </div>
-                <div className="border p-10 w-60 ">
-                    <p className="flex justify-center"></p>
-                    <p>Transfer to recipient bank account</p>
-                </div>
-                <div className="border p-10 w-60 ">
-                    <p className="flex justify-center"></p>
-                    <p> Batch payment to multiple Bankify accounts </p>
-                </div>
-                <div className="border p-10 w-60 ">
-                    <p className="flex justify-center"></p>
-                    <p> Batch payment to  multiple recipient bank accounts </p>
-                </div>
-                <div className="border p-10 w-60 ">
-                    <p className="flex justify-center"></p>
-                    <p> Pay VAT </p>
-                </div>
+            <SectionHeader>
+                 <MainHeading> Transfer</MainHeading>
+            </SectionHeader>
+           
+            <div className="grid gap-10 py-5 grid-cols-4">
+                <LinkCard text='Transfer to Bankify account'>
+                    
+                </LinkCard>
+                <LinkCard text='Transfer to recipient bank account'>
+                    
+                </LinkCard>
+                <LinkCard text='Batch payment to multiple Bankify accounts'>
+                    
+                </LinkCard>
+                <LinkCard text='Batch payment to  multiple recipient bank accounts'>
+                    
+                </LinkCard>
+                <LinkCard text='Pay VAT'>
+                    
+                </LinkCard>
             </div>
         </div>
     )

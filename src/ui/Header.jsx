@@ -7,7 +7,7 @@ export default function Header() {
     
     return (
         <header
-            className="flex py-5 border justify-between w-full items-center "
+            className="flex py-5 justify-between w-full items-center "
         > 
             <Logo />
             <Navbar/>

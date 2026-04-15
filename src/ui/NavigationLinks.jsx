@@ -6,9 +6,7 @@ export default function NavigationLinks({styles}) {
             <li>
                 <NavLink to='/dashboard'>Dashboard </NavLink>
             </li>
-            <li>
-                <NavLink to='/account'>Account </NavLink>
-            </li>
+           
             <li>
                 <NavLink to='/withdraw'>Withdraw Funds</NavLink>
             </li>
@@ -20,6 +18,9 @@ export default function NavigationLinks({styles}) {
             </li>
             <li>
                 <NavLink to='/orderCard'>Card</NavLink>
+            </li>
+             <li>
+                <NavLink to='/manage'>Manage </NavLink>
             </li>
         </ul>
     )
