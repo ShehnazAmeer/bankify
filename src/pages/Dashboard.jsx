@@ -2,22 +2,17 @@ import CurrencyCard from "../ui/CurrencyCard";
 import MainHeading from "../ui/MainHeading";
 import SectionHeader from "../ui/SectionHeader";
 
+
 export default function Dashboard() {
     return (
         <div>
             <SectionHeader>
                 <MainHeading>Dashboard</MainHeading>
             </SectionHeader>
-            
-            <div className="font-bold py-8">
-                <p className="font-bold text-[clamp(1rem,2vw,3rem)] text-blue-500">
+             <p className="font-bold text-[clamp(1rem,2vw,3rem)] text-blue-500">
                     Balance  
                 </p>
-                <p className="text-gray-600 space-x-3">
-                    <span>Total funds in all balances:</span>
-                    <span className="font-bold">500 USD</span>
-                </p>
-            </div>
+           
             <div className="grid gap-10 py-5 grid-cols-4">
                 <CurrencyCard/>
             </div>
