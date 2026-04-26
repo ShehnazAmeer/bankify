@@ -13,7 +13,7 @@ export default function AccountDetail() {
     }
     return (
         <div>
-            <SectionHeader>
+            <SectionHeader styles='py-15'>
                 <MainHeading>Bank Accounts</MainHeading>
             </SectionHeader>
             

@@ -4,7 +4,7 @@ import SectionHeader from "../../ui/SectionHeader";
 export default function LoanDetail() {
     return (
         <div>
-            <SectionHeader>
+            <SectionHeader styles='py-15'>
                  <MainHeading> LoanDetail</MainHeading>
             </SectionHeader>
            

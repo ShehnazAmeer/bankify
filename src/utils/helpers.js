@@ -1,4 +1,4 @@
-export function getFlag(currency='PKR') {
+export function getFlag(currency='JPY') {
     const countryCode = currency.toLowerCase().slice(0, 2);
     console.log(countryCode);
     const flag=`https://flagcdn.com/${countryCode}.svg`

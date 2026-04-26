@@ -1,6 +1,6 @@
-export default function SectionHeader({children}) {
+export default function SectionHeader({children,styles}) {
     return (
-        <header className="700 py-15">
+        <header className= {`${styles}`}>
             {children}
         </header>
     )

@@ -9,7 +9,7 @@ import { MdAccountBalanceWallet } from "react-icons/md";
 export default function TransferDetail() {
     return (
         <div>
-            <SectionHeader>
+            <SectionHeader styles='py-15'>
                  <MainHeading> Transfer</MainHeading>
             </SectionHeader>
            

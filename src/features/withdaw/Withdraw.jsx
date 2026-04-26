@@ -8,7 +8,7 @@ import LinkCard from "../../ui/LinkCard";
 export default function Withdraw() {
     return (
         <div>
-            <SectionHeader>
+            <SectionHeader styles='py-15'>
                  <MainHeading>Withdraw</MainHeading>
            </SectionHeader>
            

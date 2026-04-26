@@ -4,7 +4,7 @@ import SectionHeader from "../../ui/SectionHeader";
 export default function Card() {
     return (
         <div>
-            <SectionHeader>
+            <SectionHeader styles='py-15'>
                  <MainHeading>Card</MainHeading>
             </SectionHeader>
            

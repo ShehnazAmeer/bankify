@@ -1,3 +1,5 @@
+import BankifyImage from "./BankifyImage";
+
 export default function HomeTitle() {
     return (
        <section className='flex max-md:flex-col justify-between items-center px-10 pt-15  '>
@@ -27,7 +29,7 @@ export default function HomeTitle() {
                     Payoneer empowers millions of businesses with the financial tools and services they need to grow and transact globally with confidence.
                 </p>
             </div>
-             <img src='./cashier.jpg' className="rounded-full h-[clamp(20rem,40vw,60rem)] w-[clamp(25rem,50vw,70rem)]" />  
+            <BankifyImage category='insideHomeScreen'/>  
         </section>
     )
 }

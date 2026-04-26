@@ -7,7 +7,7 @@ import { CiBank } from "react-icons/ci";
 export default function BankManagement() {
     return (
         <section>
-            <SectionHeader>
+            <SectionHeader styles='py-15'>
                 <MainHeading>
                     Manage
                 </MainHeading>
