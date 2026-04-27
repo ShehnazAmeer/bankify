@@ -10,7 +10,7 @@ export default function ExchangeRate() {
         <section >
             <div className="flex">
             <p className="pr-5">Last Updated: time</p>
-            <Button> <FaArrowsRotate /></Button>
+            <Button category='basic'> <FaArrowsRotate /></Button>
             </div>
             <div className="flex justify-center py-8">
                 <Dropdown options={['Eur', 'USd', 'JPY']} />
