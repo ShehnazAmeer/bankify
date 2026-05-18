@@ -1,10 +1,14 @@
+import { FaArrowsRotate } from "react-icons/fa6";
 import CurrencyChart from "../features/dashboard/CurrencyChart";
 import ExchangeRate from "../features/dashboard/ExchangeRate";
 import TransectionHistory from "../features/dashboard/TransectionHistory";
+import Button from "../ui/Button";
 import CurrencyCard from "../ui/CurrencyCard";
 import InnerSectionHeader from "../ui/innerSectionHeader";
 import MainHeading from "../ui/MainHeading";
 import SectionHeader from "../ui/SectionHeader";
+import AccountOverview from "../features/dashboard/AccountOverview";
+import CurrencyOverview from "../features/dashboard/CurrencyOverview";
 
 
 export default function Dashboard() {
@@ -14,28 +18,14 @@ export default function Dashboard() {
             <SectionHeader styles='py-15'>
                 <MainHeading>Dashboard</MainHeading>
             </SectionHeader>
-             <p className="font-bold text-[clamp(1rem,2vw,3rem)] text-blue-500">
-                    Balance  
-                </p>
-           
-            <div className="grid gap-10 py-5 grid-cols-4">
-                <CurrencyCard/>
-            </div>
+            <p className="font-bold text-[clamp(1rem,2vw,3rem)] text-blue-500">
+                Balances
+            </p>
+            <AccountOverview />
 
             <div className="grid grid-cols-[3fr_2fr] max-md:grid-cols-1 gap-9">
-                <div>
-                    <InnerSectionHeader heading='Transection History' innerText='Updated every several minutes' />
-                  <TransectionHistory />
-                </div>
-                
-                <div className="max-md:w-full">
-                    <InnerSectionHeader heading='Exchange rate' />
-                    <div className="border border-gray-200 ">
-                        <ExchangeRate />
-                         <CurrencyChart/>
-                    </div>
-                    
-                </div>
+                <TransectionHistory />
+                <CurrencyOverview />
             </div>
         </div>
     )

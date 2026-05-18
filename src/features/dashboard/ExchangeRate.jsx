@@ -7,17 +7,13 @@ import Filter from "../../ui/Filter";
 
 export default function ExchangeRate() {
     return (
-        <section >
-            <div className="flex">
-            <p className="pr-5">Last Updated: time</p>
-            <Button category='basic'> <FaArrowsRotate /></Button>
-            </div>
-            <div className="flex justify-center py-8">
+        <section>
+            <div className="flex justify-center py-8 items-center">
                 <Dropdown options={['Eur', 'USd', 'JPY']} />
                 <HiArrowsRightLeft className="mx-5 text-2xl" />
                 <Dropdown  options={['Eur','USd','JPY']}/>
             </div>
-            <p className="pb-4">1 USD=03434Eur</p>
+            <p className="pb-4 font-bold">1 USD=03434Eur</p>
             <Filter options={['1D','7D','30D','90D']} />
         </section>
     )

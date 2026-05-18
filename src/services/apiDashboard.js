@@ -5,3 +5,6 @@ export async function getExchangeRates({fromCur,toCur,date}) {
     const data = await rates.json();
 console.log(data);
 }
+
+export function getBalance() {
+}

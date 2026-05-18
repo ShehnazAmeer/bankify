@@ -1,6 +1,6 @@
 const base = 'cursor-pointer focus:outline-none focus:ring foucs:ring-offset tracking-wide rounded-md';
 
-export default function Button({ category, children, onClick, disabled, styles }) {
+export default function Button({ category,type='button', children, onClick, disabled, styles }) {
     const style = {
         primary: `${base} bg-blue-500 text-blue-50`,
         secondary: `${base} bg-gray-500 text-gray-50`,
@@ -9,6 +9,7 @@ export default function Button({ category, children, onClick, disabled, styles }
     }
     return (
         <button
+            type={type}
             className={`${style[category]} ${styles}`} onClick={onClick}
             disabled={disabled}
         >
