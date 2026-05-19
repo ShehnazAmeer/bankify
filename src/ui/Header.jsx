@@ -3,6 +3,7 @@ import { useNavigate } from "react-router";
 import Logo from "./Logo";
 import Button from "./Button";
 import Navbar from "./Navbar";
+import UserAvatar from "../features/authentication/UserAvatar";
 
 export default function Header({ showNav }) {
     const navigate = useNavigate()
@@ -16,21 +17,26 @@ export default function Header({ showNav }) {
                 showNav && <Navbar />
             }
 
-            <span className="space-x-4 mr-3">
+            {
+                showNav ? <UserAvatar /> : (
+                    <span className="space-x-4 mr-3">
+                        <Button
+                            category='primary'
+                            styles='w-[clamp(3rem,8vw,10rem)] text-[clamp(0.5rem,2vw,2rem)] px-3 py-1'
+                            onClick={() => navigate('/login')}
+                        >
+                            Login
+                        </Button>
 
-                <Button
-                    category='primary'
-                    styles='w-[clamp(3rem,8vw,10rem)] text-[clamp(0.5rem,2vw,2rem)] px-3 py-1'
-                    onClick={() => navigate('/login')}
-                >
-                    Login
-                </Button>
-                <Button
-                    category='secondary'
-                    styles='w-[clamp(3rem,8vw,10rem)] text-[clamp(0.5rem,2vw,2rem)] px-3 py-1'
-                    onClick={() => navigate('/signup')}
-                >Signup</Button>
-            </span>
+                        <Button
+                            category='secondary'
+                            styles='w-[clamp(3rem,8vw,10rem)] text-[clamp(0.5rem,2vw,2rem)] px-3 py-1'
+                            onClick={() => navigate('/signup')}
+
+                        >Signup</Button>
+                    </span>
+                )
+            }
         </header>
     )
 };

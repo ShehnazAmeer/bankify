@@ -9,9 +9,9 @@ export default function Login() {
                 <LoginForm />
             </div>
             <div className='m-auto max-md:hidden'>
-                 <BankifyImage category='insideLogin'/>
+                <BankifyImage category='insideLogin' />
             </div>
-           
+
         </main>
     )
 }

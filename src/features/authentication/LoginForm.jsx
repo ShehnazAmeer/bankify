@@ -19,6 +19,8 @@ export default function LoginForm() {
     function onSubmit({ email, password }) {
         console.log('clicked');
 
+        // if (!email && !password) return;
+
         userLogin(
             { email, password },
             { onSettled: () => reset() }
@@ -29,6 +31,7 @@ export default function LoginForm() {
             <FormRow category='vertical' styles='relative mb-10' >
                 <input
                     id='email'
+                    disabled={isLogin}
                     type="text"
                     placeholder=" "
                     defaultValue="jarayi6888@hilostar.com"
@@ -45,6 +48,7 @@ export default function LoginForm() {
                     id='password'
                     type='password'
                     placeholder=" "
+                    disabled={isLogin}
                     defaultValue="12345678"
                     className="input py-3 focus:border-blue-500 border-b border-b-gray-300 peer mb-3"
                     {...register('password', { required: 'This field is required!' })}
@@ -57,7 +61,7 @@ export default function LoginForm() {
             <FormRow category='vertical'>
                 <Button
                     type='submit'
-                    category='primary'  
+                    category='primary'
                     styles='py-3 my-5'
 
                 >

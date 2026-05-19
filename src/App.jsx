@@ -16,6 +16,7 @@ import Card from './features/card/Card'
 import WithdrawFunds from "./features/withdaw/WithdrawFunds"
 import BankManagement from "./pages/BankManagement"
 import TransectionDetail from "./features/Manage/TransectionDetail"
+import ProtectedRoute from "./ui/ProtectedRoute";
 
 const queryClinet = new QueryClient({
   defaultOptions: {
@@ -27,7 +28,7 @@ const queryClinet = new QueryClient({
 
 const router = createBrowserRouter([
   {
-    element: <Applayout />,
+    element: <ProtectedRoute> <Applayout /> </ProtectedRoute>,
     children: [
       { path: '/dashboard', element: <Dashboard /> },
       { path: '/withdraw', element: <Withdraw /> },
