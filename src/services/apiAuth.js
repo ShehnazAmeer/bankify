@@ -18,9 +18,6 @@ export async function getCurrentUser() {
 
     const { data: user, error } = await supabase.auth.getUser();
 
-    console.log(user);
-
-
     if (error) {
         throw new Error(error.message);
     }
@@ -42,4 +39,12 @@ export async function signup({ email, password, fullName }) {
         throw new Error(error.message);
     }
     return data;
+}
+
+export async function Signout() {
+    const { error } = await supabase.auth.signOut();
+    
+    if (error) {
+        throw new Error(error.message);
+    }
 }
