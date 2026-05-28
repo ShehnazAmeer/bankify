@@ -1,10 +1,11 @@
+import { useEffect, useState } from "react";
 import Filter from "../../ui/Filter";
+import { getHistoricalCurrencyRate } from "../../services/apiDashboard";
 
-export default function CurrencyChart() {
+export default function CurrencyChart({ children }) {
     return (
         <div className="py-4">
-            <Filter options={['1D', '7D', '30D', '90D']} />
-            currency chart
+            {children}
         </div>
     )
 }

@@ -43,3 +43,9 @@ export async function getCurrencyRates(base, quote) {
 
     return data;
 }
+
+export async function getHistoricalCurrencyRate(base, quote) {
+    const res = await fetch(`https://api.frankfurter.dev/v2/rates?from=2026-05-27&base=USD&quotes=EUR`);
+    const data = await res.json();
+    return data;
+}

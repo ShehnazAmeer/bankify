@@ -1,16 +1,21 @@
+import { FaArrowsRotate } from "react-icons/fa6";
+import { HiArrowsRightLeft } from "react-icons/hi2";
+import { useEffect, useState } from "react";
+
 import InnerSectionHeader from "../../ui/innerSectionHeader";
 import Button from "../../ui/Button";
-import { FaArrowsRotate } from "react-icons/fa6";
 import Dropdown from "../../ui/Dropdown";
-import { HiArrowsRightLeft } from "react-icons/hi2";
 import Filter from "../../ui/Filter";
-import { useState } from "react";
 import useGetCurrency from "./useGetCurrency";
+import { getHistoricalCurrencyRate } from "../../services/apiDashboard";
+import CurrencyChart from "./CurrencyChart";
 
 export default function ExchangeRate() {
     const [base, setBase] = useState('USD');
     const [quote, setQuote] = useState('EUR');
+    const [clickedOption, setClickedOption] = useState('1D');
     const { exchangeRate, isExchangeRateLoading } = useGetCurrency(base, quote);
+    console.log(clickedOption);
 
     if (isExchangeRateLoading) return <p>loading...</p>
 
@@ -22,6 +27,9 @@ export default function ExchangeRate() {
                 <Dropdown options={['EUR', 'USD', 'JPY', 'PKR']} value={quote} onChange={setQuote} />
             </div>
             <p className="pb-4 font-bold">1 {exchangeRate[0]?.base}= {exchangeRate[0]?.rate} {exchangeRate[0]?.quote} </p>
+            <CurrencyChart>
+                <Filter options={['1D', '7D', '30D', '90D']} clickedOption={clickedOption} setClickedOption={setClickedOption} />
+            </CurrencyChart>
         </section>
     )
 }
