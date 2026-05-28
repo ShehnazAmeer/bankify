@@ -14,7 +14,7 @@ import CurrencyOverview from "../features/dashboard/CurrencyOverview";
 export default function Dashboard() {
 
     return (
-        <div>
+        <div >
             <SectionHeader styles='py-15'>
                 <MainHeading>Dashboard</MainHeading>
             </SectionHeader>
@@ -23,7 +23,7 @@ export default function Dashboard() {
             </p>
             <AccountOverview />
 
-            <div className="grid grid-cols-[3fr_2fr] max-md:grid-cols-1 gap-9">
+            <div className="grid grid-cols-[3fr_2fr] max-md:grid-cols-1 gap-9 pb-20">
                 <TransectionHistory />
                 <CurrencyOverview />
             </div>

@@ -12,3 +12,11 @@ export function formatCurrency(value) {
     }).format(value);
     return formatted;
 }
+
+export function formatDate(date) {
+  return new Intl.DateTimeFormat('en-GB', {
+    day: '2-digit',
+    month: 'long',
+    year: 'numeric'
+  }).format(new Date(date));
+}
