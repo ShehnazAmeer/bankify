@@ -1,15 +1,25 @@
+import toast from "react-hot-toast";
 import supabase from "./supabase";
 
 export async function signin({ email, password }) {
-    let { data, error } = await supabase.auth.signInWithPassword({
-        email,
-        password
+  try {
+    const { data, error } = await supabase.auth.signInWithPassword({
+      email,
+      password,
     });
-    if (error) {
-        throw new Error(error.message)
-    }
-    return data;
 
+    if (error) throw error;
+
+    return data;
+  } catch (error) {
+    if (!navigator.onLine) {
+      toast.error("No internet connection");
+    } else {
+      toast.error(error.message || "Something went wrong");
+    }
+
+    throw error;
+  }
 }
 export async function getCurrentUser() {
     const { data: session } = await supabase.auth.getSession();

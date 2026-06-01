@@ -11,10 +11,10 @@ export function useLogin() {
         onSuccess: (data) => {
             toast.success('User Successfully login');
             navigate('/dashboard');
+
         },
         onError: (error) => {
             toast.error(error.message)
-            throw new Error(error.message)
         }
     })
     return {
