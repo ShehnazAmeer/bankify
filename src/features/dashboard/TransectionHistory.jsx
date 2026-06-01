@@ -11,8 +11,6 @@ export default function TransectionHistory() {
     
     if (isTransactionLoading) return <p>Loading...</p>
     const {transactions } = data;
-    console.log(transactions);
-    console.log(user.id)
     return (
         <div className="max-md:w-full">
             <InnerSectionHeader heading='Transection History'>

@@ -8,7 +8,7 @@ export default function AccountOverview() {
     if (isLoadingAccounts) return <p>Loading...</p>
 
 
-    console.log(accounts);
+    // console.log(accounts);
     return (
         <div className="grid gap-10 py-5 grid-cols-4">
             {

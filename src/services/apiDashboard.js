@@ -1,10 +1,8 @@
 import supabase from "./supabase";
 export async function getExchangeRates({ fromCur, toCur, date }) {
     const rates = await fetch(`https://api.frankfurter.dev/v2/rates?base=USD&quotes=EUR&from=2026-04-20 `, {
-
     });
     const data = await rates.json();
-    console.log(data);
 }
 
 export async function getAccountsInfo(id) {
@@ -21,7 +19,6 @@ export async function getAccountsInfo(id) {
 }
 
 export async function getTransectionHistory(id) {
-    console.log(id)
     const { data: transactions, error } = await supabase
         .from('Transactions')
         .select('*')
@@ -39,13 +36,15 @@ export async function getTransectionHistory(id) {
 export async function getCurrencyRates(base, quote) {
     const res = await fetch(`https://api.frankfurter.dev/v2/rates?base=${base}&quotes=${quote}`);
     const data = await res.json();
-    console.log(data);
 
     return data;
 }
 
-export async function getHistoricalCurrencyRate(base, quote) {
-    const res = await fetch(`https://api.frankfurter.dev/v2/rates?from=2026-05-27&base=USD&quotes=EUR`);
+export async function getHistoricalCurrencyRate(base, quote,date) {
+
+    const res = await fetch(`https://api.frankfurter.dev/v2/rates?from=${date}&base=${base}&quotes=${quote}`);
+
     const data = await res.json();
+
     return data;
 }

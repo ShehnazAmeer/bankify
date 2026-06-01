@@ -7,18 +7,22 @@ import Button from "../../ui/Button";
 import Dropdown from "../../ui/Dropdown";
 import Filter from "../../ui/Filter";
 import useGetCurrency from "./useGetCurrency";
-import { getHistoricalCurrencyRate } from "../../services/apiDashboard";
+import { getFormatDate } from "../../utils/helpers";
 import CurrencyChart from "./CurrencyChart";
+import { getHistoricalCurrencyRate } from "../../services/apiDashboard";
+import useGetDateHistory from "./useGetDateHistory"
 
 export default function ExchangeRate() {
     const [base, setBase] = useState('USD');
     const [quote, setQuote] = useState('EUR');
     const [clickedOption, setClickedOption] = useState('1D');
     const { exchangeRate, isExchangeRateLoading } = useGetCurrency(base, quote);
-    console.log(clickedOption);
+   const {historyDate,isHistoryDataLoading}= useGetDateHistory(base,quote,clickedOption)
 
     if (isExchangeRateLoading) return <p>loading...</p>
+    if (isHistoryDataLoading) return <p>loading...</p>
 
+    console.log(historyDate)
     return (
         <section>
             <div className="flex justify-center py-8 items-center">
@@ -29,6 +33,7 @@ export default function ExchangeRate() {
             <p className="pb-4 font-bold">1 {exchangeRate[0]?.base}= {exchangeRate[0]?.rate} {exchangeRate[0]?.quote} </p>
             <CurrencyChart>
                 <Filter options={['1D', '7D', '30D', '90D']} clickedOption={clickedOption} setClickedOption={setClickedOption} />
+                
             </CurrencyChart>
         </section>
     )
