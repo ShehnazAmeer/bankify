@@ -7,18 +7,9 @@ import WithdrawalSetup from "../features/withdaw/WithdrawalSetup"
 import WithdrawalDetail from "../features/withdaw/WithdrawalDetail"
 import ReviewWithdraw from "../features/withdaw/ReviewWithdraw"
 
-const labels = [
-    'withdraw from',
-    'Deposit to',
-    'Set up the withdrawal',
-    'Add transaction details',
-    'Review',
-]
-console
-
 const StepContext = createContext();
 
-export default function Steps({children}) {
+export default function Steps({children,labels}) {
     const [step, setStep] = useState(0);
     console.log(labels[step]);
 
@@ -50,7 +41,7 @@ function StepList() {
     return (
         <ul>
             { 
-                labels.map((label,i)=> <StepText label= {label} /> )
+                labels.map((label,i)=> <StepText key={i} label= {label} /> )
             }
         </ul>
     )
@@ -62,17 +53,12 @@ function StepText({label}) {
     )
 }
 
-function Content() {
+function Content({children}) {
     const { step } = useStep();
-    console.log(step);
+    const steps = Array.isArray(children) ? children : [children];
     return (
         <div>
-            {labels[step] === 'withdraw from' && <WithdrawFrom />}
-            {labels[step] === 'Deposit to' && <WithdrawTo />}
-            {labels[step] === 'Set up the withdrawal' && <WithdrawalSetup />}
-            {labels[step] === 'Add transaction details' && <WithdrawalDetail />}
-            {labels[step] === 'Review' && <ReviewWithdraw />}
-            
+            { steps[step]}
         </div>
     )
 }

@@ -2,6 +2,19 @@ import { useNavigate } from "react-router";
 import Steps from "../../ui/Steps";
 import SectionHeader from "../../ui/SectionHeader";
 import Button from "../../ui/Button";
+import WithdrawFrom from "./WithdrawFrom";
+import WithdrawTo from "./WithdrawTo";
+import WithdrawalSetup from "./WithdrawalSetup";
+import WithdrawalDetail from "./WithdrawalDetail";
+import ReviewWithdraw from "./ReviewWithdraw";
+
+const labels = [
+    'withdraw from',
+    'Deposit to',
+    'Set up the withdrawal',
+    'Add transaction details',
+    'Review',
+]
 
 export default function WithdrawFunds() {
     const navigate= useNavigate();
@@ -10,10 +23,16 @@ export default function WithdrawFunds() {
             <SectionHeader>
                 <Button onClick={()=>navigate(-1)} >&larr; Withdraw to bank</Button>
             </SectionHeader>
-            <Steps>
+            <Steps labels={labels}>
                 <Steps.Step>
                     <Steps.StepList />
-                    <Steps.Content />
+                    <Steps.Content>
+                        <WithdrawFrom />
+                        <WithdrawTo />
+                        <WithdrawalSetup />
+                        <WithdrawalDetail />
+                        <ReviewWithdraw/>
+                    </Steps.Content>
                     <Steps.NextBtn/>
                 </Steps.Step>
             </Steps>
