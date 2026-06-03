@@ -34,7 +34,7 @@ export default function LoginForm() {
                     disabled={isLogin}
                     type="text"
                     placeholder=" "
-                    defaultValue="jarayi6888@hilostar.com"
+                    defaultValue="ponog60184@hilostar.com"
                     className={`input py-3 focus:border-blue-500 border-b border-b-gray-300 peer`}
                     {...register('email', { required: 'This field is required!', pattern: { value: /\S+@\S+\.\S+/, message: 'Please enter valid email address' } })}
                 />

@@ -20,8 +20,12 @@ export default function WithdrawFunds() {
     const navigate= useNavigate();
     return (
         <section className="border border-red-500 ">
-            <SectionHeader>
-                <Button onClick={()=>navigate(-1)} >&larr; Withdraw to bank</Button>
+            <SectionHeader styles='py-15'>
+                <Button category='basic' onClick={() => navigate(-1)} >
+                    <span className="p-4"> &larr;</span>
+                    <span> Withdraw to bank</span>
+                   
+                </Button>
             </SectionHeader>
             <Steps labels={labels}>
                 <Steps.Step>

@@ -18,7 +18,7 @@ export default function AccountOverview() {
             {
                 accounts.map(account => (
                     <CurrencyCard account={account} key={account.id}>
-                        <Button onClick={()=>navigate('/withdraw')}> <FaGreaterThan /></Button>
+                        <Button category='basic' onClick={()=>navigate('/withdraw')}> <FaGreaterThan /></Button>
                     </CurrencyCard>)
                 ) 
             }

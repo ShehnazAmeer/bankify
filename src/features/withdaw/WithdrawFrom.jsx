@@ -9,7 +9,7 @@ export default function WithdrawFrom() {
         <div>
              {
                 accounts.map(account => (
-                    <CurrencyCard account={account} key={account.id}/>)
+                    <CurrencyCard category='vertical' account={account} showAvailable={true} key={account.id}/>)
                 ) 
             }
         </div>
