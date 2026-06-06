@@ -6,7 +6,7 @@ export default function WithdrawalSetup() {
     const navigate= useNavigate();
     return (
         <div>
-            <MainHeading>Set up the withdrawal</MainHeading>
+             <MainHeading style='text-[clamp(0.5rem,1.5vw,3rem)] py-5 '>Set up the withdrawal</MainHeading>
             <div>Form</div>
             <Button onClick={()=>navigate('')}>Next</Button>
         </div>

@@ -9,12 +9,12 @@ import ReviewWithdraw from "../features/withdaw/ReviewWithdraw"
 
 const StepContext = createContext();
 
-export default function Steps({children,labels}) {
+export default function Steps({ children, labels }) {
     const [step, setStep] = useState(0);
     console.log(labels[step]);
 
     function handleNextStep() {
-        if (step <labels.length - 1)
+        if (step < labels.length - 1)
             setStep(s => s + 1);
     }
     return (
@@ -24,47 +24,48 @@ export default function Steps({children,labels}) {
             nextStep: handleNextStep,
         }}>
             {children}
-       </StepContext.Provider>
+        </StepContext.Provider>
     )
 }
 
-function Step({children}) {
+function Step({ children }) {
     return (
-        <section className="border grid grid-cols-[15rem_1fr] h-fit">
+        <section className="border grid grid-cols-[15rem_1fr] h-fit border border-gray-500">
             {children}
         </section>
     )
 }
 
 function StepList() {
-  const {labels}=  useStep();
+    const { labels } = useStep();
     return (
-        <ul>
-            { 
-                labels.map((label,i)=> <StepText key={i} label= {label} /> )
+        <ul className="border border-blue-500 ">
+            {
+                labels.map((label, i) => <StepText key={i} label={label} />)
             }
         </ul>
     )
 }
 
-function StepText({label}) {
+function StepText({ label }) {
+    const { step, labels } = useStep();
     return (
-        <li> {label} </li>
+        <li className={`${labels[step] === label ? 'text-blue-500' : 'text-gray-900'} ml-9 border`} > {label} </li>
     )
 }
 
-function Content({children}) {
+function Content({ children }) {
     const { step } = useStep();
     const steps = Array.isArray(children) ? children : [children];
     return (
-        <div>
-            { steps[step]}
+        <div className="border border-red-500">
+            {steps[step]}
         </div>
     )
 }
 
 function NextBtn() {
-   const {nextStep} = useStep();
+    const { nextStep } = useStep();
     return (
         <Button onClick={nextStep}  >Next</Button>
     )

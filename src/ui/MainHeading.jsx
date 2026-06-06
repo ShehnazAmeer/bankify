@@ -1,5 +1,5 @@
-export default function MainHeading({children}) {
+export default function MainHeading({children,style}) {
     return (
-        <h1 className="font-bold text-[clamp(2rem,3vw,6rem)]"> {children} </h1>
+        <h1 className={`font-bold ${style}`}> {children} </h1>
     )
 }

@@ -11,15 +11,13 @@ export default function AccountOverview() {
 
     if (isLoadingAccounts) return <p>Loading...</p>
 
-
-    // console.log(accounts);
     return (
         <div className="grid gap-10 py-5 grid-cols-4">
             {
                 accounts.map(account => (
-                    <CurrencyCard account={account} key={account.id}>
-                        <Button category='basic' onClick={()=>navigate('/withdraw')}> <FaGreaterThan /></Button>
-                    </CurrencyCard>)
+                    <CurrencyCard account={account} key={account.id} style={`border-gray-200`} onClick>
+                        <Button category='basic'  onClick={()=>navigate(`/withdraw/withdrawFunds`,{state:account})}> <FaGreaterThan /></Button>
+                    </CurrencyCard>)    
                 ) 
             }
         </div>

@@ -10,7 +10,7 @@ import ReviewWithdraw from "./ReviewWithdraw";
 
 const labels = [
     'withdraw from',
-    'Deposit to',
+    'Withdraw to',
     'Set up the withdrawal',
     'Add transaction details',
     'Review',
