@@ -1,6 +1,9 @@
-import { Link } from "react-router"
+import { Link } from "react-router";
+import { createContext, useContext, useState } from "react";
+import { GoDotFill } from "react-icons/go";
+import { FaRegCheckCircle } from "react-icons/fa";
+
 import Button from "./Button"
-import { createContext, useContext, useState } from "react"
 import WithdrawFrom from "../features/withdaw/WithdrawFrom"
 import WithdrawTo from "../features/withdaw/WithdrawTo"
 import WithdrawalSetup from "../features/withdaw/WithdrawalSetup"
@@ -30,7 +33,7 @@ export default function Steps({ children, labels }) {
 
 function Step({ children }) {
     return (
-        <section className="border grid grid-cols-[15rem_1fr] h-fit border border-gray-500">
+        <section className="grid grid-cols-[15rem_1fr] h-fit">
             {children}
         </section>
     )
@@ -39,18 +42,22 @@ function Step({ children }) {
 function StepList() {
     const { labels } = useStep();
     return (
-        <ul className="border border-blue-500 ">
+        <ul>
             {
-                labels.map((label, i) => <StepText key={i} label={label} />)
+                labels.map((label, i) => <StepText key={i} label={label} index={i} />)
             }
         </ul>
     )
 }
 
-function StepText({ label }) {
+function StepText({ label,index }) {
     const { step, labels } = useStep();
+
     return (
-        <li className={`${labels[step] === label ? 'text-blue-500' : 'text-gray-900'} ml-9 border`} > {label} </li>
+        <li className={`flex py-4 align-middle ${labels[step] === label ? 'text-blue-500' : 'text-gray-900'} ml-9`} >
+            <span className="pr-5"> {index < step? <FaRegCheckCircle />: <GoDotFill />} </span>
+            <span>{label}</span>
+        </li>
     )
 }
 
@@ -58,7 +65,7 @@ function Content({ children }) {
     const { step } = useStep();
     const steps = Array.isArray(children) ? children : [children];
     return (
-        <div className="border border-red-500">
+        <div>
             {steps[step]}
         </div>
     )
@@ -67,7 +74,10 @@ function Content({ children }) {
 function NextBtn() {
     const { nextStep } = useStep();
     return (
-        <Button onClick={nextStep}  >Next</Button>
+        <div className="col-span-2 h-fit flex justify-center">
+             <Button category='primary' styles='py-4 px-9 border' onClick={nextStep}  >Next</Button>
+        </div>
+       
     )
 }
 

@@ -19,12 +19,11 @@ const labels = [
 export default function WithdrawFunds() {
     const navigate= useNavigate();
     return (
-        <section className="border border-red-500 ">
-            <SectionHeader styles='py-15'>
+        <section>
+            <SectionHeader styles='py-15 border-b border-gray-300'>
                 <Button category='basic' onClick={() => navigate(-1)} >
                     <span className="p-4"> &larr;</span>
-                    <span> Withdraw to bank</span>
-                   
+                    <span> Withdraw to bank</span> 
                 </Button>
             </SectionHeader>
             <Steps labels={labels}>

@@ -9,7 +9,7 @@ export default function WithdrawFrom() {
 
     if(isLoadingAccounts) return <p>Loading...</p>
     return (
-        <div> 
+        <div className="ml-10"> 
             <MainHeading style='text-[clamp(0.5rem,1.5vw,3rem)] py-5 '>Withdraw from</MainHeading>
              {
                 accounts.map(account => (
