@@ -1,8 +1,8 @@
 import { FaArrowsRotate } from "react-icons/fa6";
 import Button from "../../ui/Button";
-import InnerSectionHeader from "../../ui/innerSectionHeader";
 import CurrencyChart from "./CurrencyChart";
 import ExchangeRate from "./ExchangeRate";
+import InnerSectionHeader from "../../ui/InnerSectionHeader";
 
 export default function CurrencyOverview() {
     return (
