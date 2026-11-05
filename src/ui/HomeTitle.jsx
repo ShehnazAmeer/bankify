@@ -26,7 +26,7 @@ export default function HomeTitle() {
                 <p
                     className="text-[clamp(0.3rem,2vw,1.5rem)] py-15"
                 >
-                    Payoneer empowers millions of businesses with the financial tools and services they need to grow and transact globally with confidence.
+                    Bankify empowers millions of businesses with the financial tools and services they need to grow and transact globally with confidence.
                 </p>
             </div>
             <BankifyImage category='insideHomeScreen'/>  

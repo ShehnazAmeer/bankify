@@ -7,7 +7,6 @@ import UserAvatar from "../features/authentication/UserAvatar";
 
 export default function Header({ showNav }) {
     const navigate = useNavigate()
-
     return (
         <header
             className="flex py-5 justify-between w-full items-center "

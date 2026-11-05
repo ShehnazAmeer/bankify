@@ -15,7 +15,7 @@ export default function Withdraw() {
             <div className="grid grid-cols-4 gap-5">
                 <LinkCard to='/withdraw/withdrawFunds' text=' Withdraw to bank'>
                     &rarr;
-                    <CiBank className="w-10 h-10 text-blue-500  " />
+                    <CiBank className="w-10 h-10 text-blue-500" />
                 </LinkCard>
 
                 <LinkCard to='/' text='Convert currencies'>

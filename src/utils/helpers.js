@@ -23,7 +23,6 @@ export function formatDate(date) {
 
 export function getFormatDate(days) {
   // 2026-05-27
-  console.log(days)
   const day = parseInt(days);
 
   const date = new Date();

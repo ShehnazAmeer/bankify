@@ -1,7 +1,7 @@
-export default function Dropdown({ options = [], value, onChange }) {
+export default function Dropdown({ options = [], value, onChange,styles }) {
     return (
         <select
-            className="w-20 border border-gray-300 p-5"
+            className={`border  ${styles}`}
             onChange={(e) => onChange(e.target.value)}
             value={value}
         >

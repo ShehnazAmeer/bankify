@@ -1,12 +1,15 @@
-import { useNavigate } from "react-router";
 import Steps from "../../ui/Steps";
-import SectionHeader from "../../ui/SectionHeader";
-import Button from "../../ui/Button";
 import WithdrawFrom from "./WithdrawFrom";
 import WithdrawTo from "./WithdrawTo";
 import WithdrawalSetup from "./WithdrawalSetup";
 import WithdrawalDetail from "./WithdrawalDetail";
 import ReviewWithdraw from "./ReviewWithdraw";
+import NavigateBackButton from "../../ui/NavigateBackButton";
+import { useState } from "react";
+import { useInitiateWithdrawal } from "./useInitiateWithdrawal";
+import { useUpdateBalance } from "./useUpdateBalance";
+import useUser from "../authentication/useUser";
+import { useNavigate } from "react-router";
 
 const labels = [
     'withdraw from',
@@ -17,26 +20,53 @@ const labels = [
 ]
 
 export default function WithdrawFunds() {
-    const navigate= useNavigate();
+    const [withdrawData,setWithdrawData]=useState({});
+    const {requestWithdrawl,isPending:isRequestingWithdraw} =useInitiateWithdrawal();
+    const {updateBalance,isPending:isUpdatingBalnce} =useUpdateBalance();
+    const {user}= useUser();
+    const navigate=useNavigate()
+    
+
+    function getWithdrawData(withdraw){
+        setWithdrawData(withdrawData=> ({
+            ...withdrawData,
+            ...withdraw
+        }))
+    }
+
+    function requestWithdraw(){
+        requestWithdrawl({
+            amount:withdrawData.amountToWithdraw,
+            type: 'withdraw',
+            status: 'pending',
+            senderAccountId:withdrawData.senderAccountId,
+            receiverAccountId:withdrawData.receiverAccountId,
+            currency:withdrawData.currency,
+            description:withdrawData.description,
+        });
+        updateBalance({id:user.id,withdrawData}) 
+        setWithdrawData({});
+        
+    }
+
+
     return (
         <section>
-            <SectionHeader styles='py-15 border-b border-gray-300'>
-                <Button category='basic' onClick={() => navigate(-1)} >
-                    <span className="p-4"> &larr;</span>
-                    <span> Withdraw to bank</span> 
-                </Button>
-            </SectionHeader>
+            <NavigateBackButton headingText='withdraw to bank'/>
+            
             <Steps labels={labels}>
                 <Steps.Step>
                     <Steps.StepList />
                     <Steps.Content>
                         <WithdrawFrom />
-                        <WithdrawTo />
-                        <WithdrawalSetup />
-                        <WithdrawalDetail />
-                        <ReviewWithdraw/>
+                        <WithdrawTo getWithdrawData={getWithdrawData}/>
+                        <WithdrawalSetup getWithdrawData={getWithdrawData} />
+                        <WithdrawalDetail getWithdrawData={getWithdrawData} />
+                        <ReviewWithdraw withdrawData={withdrawData} />
                     </Steps.Content>
-                    <Steps.NextBtn/>
+                    <Steps.BtnContainer>
+                        <Steps.StepBtn onClick={requestWithdraw} />
+                    </Steps.BtnContainer>
                 </Steps.Step>
             </Steps>
         </section>

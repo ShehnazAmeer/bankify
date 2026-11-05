@@ -16,11 +16,9 @@ export default function ExchangeRate() {
     const [quote, setQuote] = useState('EUR');
     const [clickedOption, setClickedOption] = useState('1D');
     const { exchangeRate, isExchangeRateLoading } = useGetCurrency(base, quote);
-   const {historyDate,isHistoryDataLoading}= useGetDateHistory(base,quote,clickedOption)
+   const {historyDate,isHistoryDataLoading}= useGetDateHistory(base,quote,clickedOption);
 
     if (isExchangeRateLoading) return <p>loading...</p>
-
-    console.log(historyDate)
     return (
         <section>
             <div className="flex justify-center py-8 items-center">

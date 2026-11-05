@@ -1,8 +1,9 @@
 import { useNavigate } from "react-router";
+import { FaGreaterThan } from "react-icons/fa6";
+
 import CurrencyCard from "../../ui/CurrencyCard";
 import useGetAccounts from "./useGetAccounts";
 import Button from "../../ui/Button";
-import { FaGreaterThan } from "react-icons/fa6";
 
 
 export default function AccountOverview() {
@@ -15,7 +16,12 @@ export default function AccountOverview() {
         <div className="grid gap-10 py-5 grid-cols-4">
             {
                 accounts.map(account => (
-                    <CurrencyCard account={account} key={account.id} style={`border-gray-200`} onClick>
+                    <CurrencyCard 
+                        type='balance'
+                        account={account} 
+                        key={account.id} 
+                        style={`border-gray-200`}
+                    >
                         <Button category='basic'  onClick={()=>navigate(`/withdraw/withdrawFunds`,{state:account})}> <FaGreaterThan /></Button>
                     </CurrencyCard>)    
                 ) 

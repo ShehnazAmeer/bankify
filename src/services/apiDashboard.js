@@ -1,4 +1,5 @@
 import supabase from "./supabase";
+
 export async function getExchangeRates({ fromCur, toCur, date }) {
     const rates = await fetch(`https://api.frankfurter.dev/v2/rates?base=USD&quotes=EUR&from=2026-04-20 `, {
     });
@@ -47,4 +48,18 @@ export async function getHistoricalCurrencyRate(base, quote,date) {
     const data = await res.json();
 
     return data;
+}
+
+export async function getCurrentDayCurrencyRate(base,quote){
+    //2026-05-27
+    const today=new Date().toLocaleDateString('en-GB',{
+        day:'2-digit',
+        month:'2-digit',
+        year:'numeric'
+    }).replace(/\//g,"-")
+    console.log(today)
+    const res=await fetch(`https://api.frankfurter.dev/v2/rates?from=${today}&base=${base}&quotes=${quote}`);
+
+    const data=await res.json();
+    console.log(data)
 }

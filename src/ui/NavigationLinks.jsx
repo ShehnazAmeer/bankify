@@ -16,9 +16,6 @@ export default function NavigationLinks({styles}) {
             <li>
                 <NavLink to='/loan'>Loan Request</NavLink>
             </li>
-            <li>
-                <NavLink to='/orderCard'>Card</NavLink>
-            </li>
              <li>
                 <NavLink to='/manage'>Manage </NavLink>
             </li>

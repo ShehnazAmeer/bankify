@@ -10,7 +10,8 @@ export default function Button({ category,type='button', children, onClick, disa
     return (
         <button
             type={type}
-            className={`${style[category]} ${styles}`} onClick={onClick}
+            className={`${style[category]} ${styles}`} 
+            onClick={onClick}
             disabled={disabled}
         >
             {children}
