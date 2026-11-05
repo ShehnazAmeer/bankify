@@ -1,12 +1,8 @@
-import { FaArrowsRotate } from "react-icons/fa6";
 import { HiArrowsRightLeft } from "react-icons/hi2";
 import { useState } from "react"
-import InnerSectionHeader from "../../ui/innerSectionHeader";
-import Button from "../../ui/Button";
 import Dropdown from "../../ui/Dropdown";
 import Filter from "../../ui/Filter";
 import useGetCurrency from "./useGetCurrency";
-import CurrencyChart from "./CurrencyChart";
 import useGetDateHistory from "./useGetDateHistory";
 import CurrencyLineChart from './CurrencyLineChart'
 
