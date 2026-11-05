@@ -1,12 +1,9 @@
 
 import TransectionHistory from "../features/dashboard/TransectionHistory";
 import MainHeading from "../ui/MainHeading";
-import SectionHeader from "../ui/SectionHeader";
 import AccountOverview from "../features/dashboard/AccountOverview";
 import CurrencyOverview from "../features/dashboard/CurrencyOverview";
-import useUser from "../features/authentication/useUser";
-import { useLocation } from "react-router";
-
+import SectionHeader from "../ui/SectionHeader";
 export default function Dashboard() {
     return (
         <div >
