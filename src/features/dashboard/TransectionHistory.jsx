@@ -1,9 +1,9 @@
 import { PiGreaterThan } from "react-icons/pi";
-import InnerSectionHeader from "../../ui/innerSectionHeader";
 import Tables from "../../ui/Table";
 import { formatCurrency, formatDate } from "../../utils/helpers";
 import useGetTransaction from "./useGetTransaction";
 import useUser from "../authentication/useUser";
+import InnerSectionHeader from "../../ui/InnerSectionHeader";
 
 export default function TransectionHistory() {
     const { transactions: data, isTransactionLoading } = useGetTransaction();
