@@ -5,9 +5,9 @@ export async function getUserProfile(id) {
         .from('Profile')
         .select('*')
         .eq('id', id)
-        .single();
     if (error) {
         throw new Error(error.message);
     }
+    console.log(profile)
     return profile;
 }

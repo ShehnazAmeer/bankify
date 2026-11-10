@@ -10,10 +10,11 @@ export default function useProfile() {
        queryFn: () => getUserProfile(user.id),
        enabled: !!user.id,
    });
-    
+    console.log(profile)
     if (error) {
         throw new Error(error.message);
     }
+
     return {
         profile,
         isProfileLoading,

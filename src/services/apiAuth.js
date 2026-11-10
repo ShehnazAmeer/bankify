@@ -34,19 +34,36 @@ export async function getCurrentUser() {
     return user?.user;
 }
 
-export async function signup({ email, password, fullName }) {
+export async function signup(email, password, fullName,phoneNumber,avatarFile ) {
+  console.log({email, password, fullName,phoneNumber,avatarFile})
+
+  //adding userImage into bucket
+  const {data:imageData, error:imageError } = await supabase
+  .storage
+  .from('avatar')
+  .upload(`userId-${avatarFile?.name}`,avatarFile);
+
+  //get imageFrom avatar bucket
+  const {data:url}= await supabase.storage.from('avatar').getPublicUrl(`userId/${avatarFile?.name}`);
+  const avatarUploadedURL=url.publicUrl;
+  console.log(avatarUploadedURL)
+  //new user signup
     const { data, error } = await supabase.auth.signUp({
         email,
         password,
         options: {
             data: {
                 fullName,
-                avatar: "",
+                phoneNumber,
+                avatarUploadedURL
             }
         }
     });
-    if (error) {
-        throw new Error(error.message);
+
+    //upload avatar into supabase bucket
+
+    if (error || imageError) {
+        throw new Error(`${error.message} ${imageError.message}`);
     }
     return data;
 }
@@ -58,3 +75,4 @@ export async function Signout() {
         throw new Error(error.message);
     }
 }
+

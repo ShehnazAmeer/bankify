@@ -10,7 +10,7 @@ export default function Signup() {
             </div>
             <div className='flex w-210 flex-col border-r border-r-gray-300 items-center  '>
                 <Logo styles='mt-10' />
-                <p>Enter your detail to create your account.</p>
+                <p className="text-xl font-bold text-blue-400 pt-5">Enter your detail to create your account.</p>
                 <SignupForm />
             </div>
         </main>

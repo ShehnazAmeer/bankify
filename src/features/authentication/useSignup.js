@@ -7,7 +7,7 @@ export default function useSignup() {
     const navigate = useNavigate();
     
     const { mutate: signup, isPending: isUserSignup } = useMutation({
-        mutationFn: signupApi,
+        mutationFn: ({ fullName, email, password,phoneNumber,avatarFile })=> signupApi(email, password, fullName,phoneNumber,avatarFile),
         onSuccess: (data) => {
             console.log(data);
             toast.success('User created successfully');

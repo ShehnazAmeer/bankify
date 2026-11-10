@@ -34,7 +34,7 @@ export default function LoginForm() {
                     disabled={isLogin}
                     type="text"
                     placeholder=" "
-                    defaultValue="ponog60184@hilostar.com"
+                    defaultValue="8pgxn0uybi@bwmyga.com"
                     className={`input py-3 focus:border-blue-500 border-b border-b-gray-300 peer`}
                     {...register('email', { required: 'This field is required!', pattern: { value: /\S+@\S+\.\S+/, message: 'Please enter valid email address' } })}
                 />
@@ -49,7 +49,7 @@ export default function LoginForm() {
                     type='password'
                     placeholder=" "
                     disabled={isLogin}
-                    defaultValue="12345678"
+                    defaultValue="123456A"
                     className="input py-3 focus:border-blue-500 border-b border-b-gray-300 peer mb-3"
                     {...register('password', { required: 'This field is required!' })}
                 />
