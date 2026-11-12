@@ -1,14 +1,13 @@
 import { BsBank } from "react-icons/bs";
 import { RiArrowRightWideLine } from "react-icons/ri";
 import Button from "../../ui/Button"
-import useWithdrawBankAccountsInfo from "../../hooks/useWithdrawBankAccountInfo";
 
-export default function BankAccountCard({onClick,withdrawBankAccount}) {
+export default function BankAccountCard({withdrawBankAccount}) {
     
     const {bankName,bankStatus,bankAccountType,bankIban}=withdrawBankAccount;
 
     return (
-        <div role="button" onClick={onClick} className="flex items-center border w-120 p-4" >
+        <div className="flex items-center border w-120 p-4" >
             <div className="border w-15 h-15 mr-3 rounded-full object-cover flex justify-center items-center" >
                 <BsBank className="w-8 h-8" />
             </div>
@@ -20,11 +19,9 @@ export default function BankAccountCard({onClick,withdrawBankAccount}) {
                 <p className="border-b border-gray-400"> {bankIban} </p>
                 <p> {bankStatus} </p>
             </div>
-            
             <Button category='basic' styles='self-center px-4'>
                 <RiArrowRightWideLine className="text-2xl text-gray-700" />
             </Button>
-          
         </div>
     )
 }

@@ -10,7 +10,7 @@ export default function TransferDetail() {
     return (
         <div>
             <SectionHeader styles='py-15'>
-                 <MainHeading> Transfer</MainHeading>
+                 <MainHeading style='text-[clamp(1rem,2vw,3rem)]'> Transfer</MainHeading>
             </SectionHeader>
            
             <div className="grid gap-10 py-5 grid-cols-4 ">

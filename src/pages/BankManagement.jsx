@@ -8,7 +8,7 @@ export default function BankManagement() {
     return (
         <section>
             <SectionHeader styles='py-15'>
-                <MainHeading>
+                <MainHeading style='text-[clamp(1rem,2vw,3rem)]'>
                     Manage
                 </MainHeading>
             </SectionHeader>

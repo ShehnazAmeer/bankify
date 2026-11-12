@@ -11,9 +11,6 @@ export default function BankAccountOverview() {
     const navigate=useNavigate();
     const {withdrawBankAccounts,status}=useWithdrawBankAccountsInfo();
 
-    console.log(status);
-    console.log(withdrawBankAccounts);
-
     return (
         <section >
             <NavigateBackButton headingText='Bank Accounts' />
@@ -23,7 +20,6 @@ export default function BankAccountOverview() {
                         {
                             withdrawBankAccounts?.map(bankAccount=>  <BankAccountCard key={bankAccount.id} withdrawBankAccount={bankAccount} /> )
                         }
-                       
                     </Modal.Open>
                     <Modal.Window>
                         <BankAccountDetail name='bankAccount'/>

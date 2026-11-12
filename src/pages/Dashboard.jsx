@@ -8,7 +8,7 @@ export default function Dashboard() {
     return (
         <div >
             <SectionHeader styles='py-15'>
-                <MainHeading>Dashboard</MainHeading>
+                <MainHeading style='text-[clamp(1rem,2vw,3rem)]'>Dashboard</MainHeading>
             </SectionHeader>
             <p className="font-bold text-[clamp(1rem,2vw,3rem)] text-blue-500">
                 Balances

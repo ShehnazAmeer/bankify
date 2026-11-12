@@ -9,11 +9,12 @@ import Button from "../../ui/Button";
 export default function AccountOverview() {
     const { accounts, isLoadingAccounts } = useGetAccounts();
     const navigate=useNavigate();
+    console.log(accounts)
 
     if (isLoadingAccounts) return <p>Loading...</p>
 
     return (
-        <div className="grid gap-10 py-5 grid-cols-4">
+        <div className="grid gap-10 py-5 grid-cols-4 items-center">
             {
                 accounts.map(account => (
                     <CurrencyCard 
@@ -26,6 +27,9 @@ export default function AccountOverview() {
                     </CurrencyCard>)    
                 ) 
             }
+            <div>
+                <Button category='primary' styles='p-3' onClick={()=>navigate('/newaccount')} >Add new Account</Button>
+            </div>
         </div>
     )
 }

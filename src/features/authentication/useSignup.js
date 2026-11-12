@@ -11,7 +11,7 @@ export default function useSignup() {
         onSuccess: (data) => {
             console.log(data);
             toast.success('User created successfully');
-            navigate('/login')
+            navigate('/dashboard');
         },
         onError: () => {
             toast.error('Error occured while creating new user. Please try again later!');

@@ -34,7 +34,7 @@ function Window({ children, name }) {
                 <div className="border border-red-500 fixed">
                     <div>
                         {
-                            Children.map(children, child => {
+                            children.map(children, child => {
                             if (!isValidElement(child)) return child;
                             return cloneElement(child,{onClick})
                             })

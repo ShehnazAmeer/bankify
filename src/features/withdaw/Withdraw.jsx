@@ -9,7 +9,7 @@ export default function Withdraw() {
     return (
         <div>
             <SectionHeader styles='py-15'>
-                 <MainHeading>Withdraw</MainHeading>
+                 <MainHeading style='text-[clamp(1rem,2vw,3rem)]'>Withdraw</MainHeading>
            </SectionHeader>
            
             <div className="grid grid-cols-4 gap-5">

@@ -17,6 +17,7 @@ import TransectionDetail from "./features/Manage/TransectionDetail"
 import ProtectedRoute from "./ui/ProtectedRoute";
 import AddNewBankAccount from "./features/Manage/AddNewBankAccount";
 import BankAccountOverview from "./features/Manage/BankAccountOverview";
+import AddNewAccount from './features/account/AddNewAccount'
 
 import { Toaster } from "react-hot-toast";
 
@@ -34,6 +35,7 @@ const router = createBrowserRouter([
     children: [
       { path: '/dashboard', element: <Dashboard /> },
       { path: '/withdraw', element: <Withdraw /> },
+      { path: '/newaccount', element: <AddNewAccount/>},
       { path: '/withdraw/withdrawFunds', element: <WithdrawFunds /> },
       { path: '/transfer', element: <TransferDetail /> },
       { path: '/loan', element: <LoanDetail /> },

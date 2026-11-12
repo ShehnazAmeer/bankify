@@ -5,7 +5,7 @@ export default function LoanDetail() {
     return (
         <div>
             <SectionHeader styles='py-15'>
-                 <MainHeading> LoanDetail</MainHeading>
+                 <MainHeading style='text-[clamp(1rem,2vw,3rem)]'> LoanDetail</MainHeading>
             </SectionHeader>
            
            

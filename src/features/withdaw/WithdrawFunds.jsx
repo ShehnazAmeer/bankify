@@ -46,14 +46,10 @@ export default function WithdrawFunds() {
         });
         updateBalance({id:user.id,withdrawData}) 
         setWithdrawData({});
-        
     }
-
-
     return (
         <section>
             <NavigateBackButton headingText='withdraw to bank'/>
-            
             <Steps labels={labels}>
                 <Steps.Step>
                     <Steps.StepList />

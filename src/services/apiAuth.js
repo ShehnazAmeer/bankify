@@ -37,16 +37,22 @@ export async function getCurrentUser() {
 export async function signup(email, password, fullName,phoneNumber,avatarFile ) {
   console.log({email, password, fullName,phoneNumber,avatarFile})
 
-  //adding userImage into bucket
+  //upload avatar
+  const avatarPath=`userId-${Date.now()}-${avatarFile.name}`
   const {data:imageData, error:imageError } = await supabase
   .storage
   .from('avatar')
-  .upload(`userId-${avatarFile?.name}`,avatarFile);
+  .upload(avatarPath,avatarFile);
 
-  //get imageFrom avatar bucket
-  const {data:url}= await supabase.storage.from('avatar').getPublicUrl(`userId/${avatarFile?.name}`);
+  if(imageError){
+    throw new Error(imageError.message)
+  }
+
+  //get avatar public URL
+  const {data:url}= supabase.storage.from('avatar').getPublicUrl(avatarPath);
   const avatarUploadedURL=url.publicUrl;
   console.log(avatarUploadedURL)
+
   //new user signup
     const { data, error } = await supabase.auth.signUp({
         email,
@@ -55,15 +61,14 @@ export async function signup(email, password, fullName,phoneNumber,avatarFile ) 
             data: {
                 fullName,
                 phoneNumber,
-                avatarUploadedURL
+                avatar:avatarUploadedURL,
+                
             }
         }
     });
 
-    //upload avatar into supabase bucket
-
-    if (error || imageError) {
-        throw new Error(`${error.message} ${imageError.message}`);
+    if (error) {
+        throw new Error(`${error.message}`);
     }
     return data;
 }
