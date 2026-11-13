@@ -39,13 +39,13 @@ export default function WithdrawalSetup({getWithdrawData}) {
              <Form styles='h-fit w-150 '>
                 <FormRow category='vertical' >
                     <label className='py-4'> Withdraw from {WithdrawBase} balance </label>
-                    <div className='border text-gray-500 border-blue-300 w-fit'>
+                    <div className='border text-gray-500 border-blue-300  w-fit'>
                         <input 
                             id='withdrawAmount'
                             type='number'
                             stpe='0.01'
                             placeholder='0.00'
-                            className=' border-r border-blue-300 h-10' 
+                            className=' border-r border-blue-300 w-100 h-15' 
                             {...register('withdrawAmount',{required:'This field is required!'})}
                         />
                         <Dropdown 
@@ -97,7 +97,7 @@ export default function WithdrawalSetup({getWithdrawData}) {
                             readOnly
                             value={amountAfterDeduction}
                             {...register('exchangeAmount',{required:'This field is required!'})}
-                            className='border-r border-blue-300 h-10 '
+                            className='border-r border-blue-300 h-15 w-100 '
                         />
                         <Dropdown
                             styles='border-none'

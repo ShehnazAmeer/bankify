@@ -24,7 +24,6 @@ export default function WithdrawFunds() {
     const {requestWithdrawl,isPending:isRequestingWithdraw} =useInitiateWithdrawal();
     const {updateBalance,isPending:isUpdatingBalnce} =useUpdateBalance();
     const {user}= useUser();
-    const navigate=useNavigate()
     
 
     function getWithdrawData(withdraw){

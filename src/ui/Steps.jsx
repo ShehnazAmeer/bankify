@@ -40,7 +40,7 @@ function Step({ children }) {
 function StepList() {
     const { labels } = useStep();
     return (
-        <ul>
+        <ul >
             {
                 labels.map((label, i) => <StepText key={i} label={label} index={i} />)
             }
@@ -64,7 +64,7 @@ function Content({ children }) {
     const { step } = useStep();
     const steps = Array.isArray(children) ? children : [children];
     return (
-        <div>
+        <div >
             {steps[step]}
         </div>
     )
@@ -72,7 +72,7 @@ function Content({ children }) {
 
 function BtnContainer({children}){
     return(
-        <div className='gap-5 center flex w-3xl  justify-center'>
+        <div className='gap-5 center flex w-3xl justify-center'>
             {children}
         </div>
     )
@@ -83,7 +83,7 @@ function StepBtn({onClick}) {
     // console.log(labels[step])
     return (
         <div className="col-span-2 h-fit flex justify-center">
-             <Button category='primary' styles='py-4 px-9 border' onClick={labels[step]!=='Review'?nextStep:onClick}  >
+             <Button category='primary' styles='py-4 px-15 border' onClick={labels[step]!=='Review'?nextStep:onClick}  >
                 {
                     labels[step]!=='Review'? 'Next':'Withdraw'
                 }
